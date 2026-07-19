@@ -9,7 +9,7 @@
     "build:server": "vite build --config vite.config.ssr.ts",
     "build": "npm run build:client && npm run build:server",
     "start:dev": "npm run build:server && ts-node --files -P tsconfig.json src/main.ts",
-    "start": "node dist/main.js"
+    "start": "node dist/server/main.js"
   },
   "keywords": [],
   "author": "",

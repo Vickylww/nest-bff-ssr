@@ -5,12 +5,17 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
   plugins: [vue()],
   build: {
-    ssr: 'vue/entry-server.ts',   // ← 原来是 src/app/...，现在改成 vue/...
+    ssr: true,                    // 启用 SSR 构建（多入口）
     outDir: 'dist/server',
     rollupOptions: {
+      input: {
+        main: 'src/main.ts',                       // → dist/main.js
+        'entry-server': 'vue/entry-server.ts',     // → dist/entry-server.js
+      },
       output: {
         format: 'cjs',
-        entryFileNames: 'entry-server.js',
+        entryFileNames: '[name].js',   // 保留原 key 作为文件名
+        chunkFileNames: 'chunks/[name]-[hash].js', // 公共代码分块
       },
     },
   },
