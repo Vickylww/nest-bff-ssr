@@ -1,0 +1,37 @@
+{
+  "name": "nest-bff-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:client": "vite build",
+    "build:server": "vite build --config vite.config.ssr.ts",
+    "build": "npm run build:client && npm run build:server",
+    "start:dev": "npm run build:server && ts-node --files -P tsconfig.json src/main.ts",
+    "start": "node dist/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@nestjs/axios": "^4.0.1",
+    "@nestjs/common": "^11.1.28",
+    "@nestjs/core": "^11.1.28",
+    "@nestjs/platform-express": "^11.1.28",
+    "@vue/server-renderer": "^3.5.39",
+    "axios": "^1.18.1",
+    "cookie-parser": "^1.4.7",
+    "vue": "^3.5.39"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.10",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.1.1",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "vite": "^8.1.4"
+  }
+}
